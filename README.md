@@ -56,7 +56,7 @@ With the default values set, you have just to upload the file, set its name and 
 ## Output
 
 Output files include:  
-- TXT files containing time series predictions per technique --> e.g. the output file mob_g722_cnn.txt is a 6-column file containing prediction per each feature obtained by applying the CNN technique  
-- TXT files containing performance indicators per technique --> e.g. the output file mae_cnn.txt contains the Mean Absolute Error obtained after applying CNN technique per feature; similarly, the output file mse_cnn.txt contains the Mean Squared Error obtained after applying CNN technique per feature. Please note that such performance are also displayed directly in the output code  
-- Information about training time per each technique (directly shown into the output code) 
+- TXT files containing time series predictions per technique --> e.g. the output file mob_g722_cnn.txt is a 6-column file containing prediction per each feature obtained by applying the CNN technique. Such files have been used to produce the prediction plots embedded in the output. Once exported, such files can be obviously used to reproduce the plots eventually through different plot tools.  
+- TXT files containing performance indicators per technique --> e.g. the output file mae_cnn.txt contains the Mean Absolute Error obtained after applying CNN technique per feature; similarly, the output file mse_cnn.txt contains the Mean Squared Error obtained after applying CNN technique per feature. Please note that such performance are also displayed directly in the output code.  
+- Information about training time per each technique (directly shown into the output code). 
 
