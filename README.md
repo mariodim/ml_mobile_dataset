@@ -24,7 +24,7 @@ Each sub-dataset contains 6 temporal features:
 - DJB (De-jittering Buffer) --> measures the buffer lenght used to reduce jitter (expressed in ms)
 - SNR (Signal-to-Noise ratio) --> measures the objective quality of the communication channel (expressed in dB)
 
-*Example:*
+Fro the sake of simplicity, each sub-dataset is in .txt where values are separated by commas (see the following example): 
 
 Time,MOS,BW,RTT,JTR,BUF,SNR  
 1,4.5,83.888,0,60,67,27  
