@@ -42,9 +42,9 @@ Time,MOS,BW,RTT,JTR,BUF,SNR
 Each sub-dataset must be uploaded into our Python routine available at:  
 https://colab.research.google.com/drive/1xd9BxLasPSi1VaXLSPM7ew_8agM6rkap?usp=sharing
 
-After uploaded a sub-dataset (e.g. mob_g722.txt), set the parameters in the first cell structure:  
+After uploaded a sub-dataset (e.g. mob_g722.txt, meaning that the traffic is collected within the mobile scenario and the codec used is G.722), set the parameters in the first cell structure:  
 
-- filename="mob_g722.txt"  
+- filename --> insert the name of the uploaded file (e.g. "mob_g722.txt")
 - train_size --> you can choose the training size (the test size is set accordingly) 
 - param --> you can define the size of your ML network (number of dense neurons, number of LSTM units, etc.)  
 - epochs --> you can set the number of epochs  
