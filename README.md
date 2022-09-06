@@ -52,7 +52,8 @@ After uploaded a sub-dataset (e.g. mob_g722.txt, meaning that the traffic is col
 - cols_to_predict --> you can choose one among the available features to predict (MOS, BW, RTT, JIT, DJB, SNR)
 
 Other parameters can be modified in the second "cell" Python code:
-- n_past --> is the number of past values used in the training set. Currently, we automate such a choice through the usage of the Akaike Information Criterion which selects the optimal value of n_past by minimizing the prediction error. In case users want to set manually such a number, it suffices to manually set the n_past variable (e.g., n_past=10).
+- n_past --> is the number of past values used in the training set. Currently, we automate such a choice through the usage of the Akaike Information Criterion which selects the optimal value of n_past by minimizing the prediction error. In case users want to set manually such a number, it suffices to manually set the n_past variable (e.g., n_past=10)
+- scaler --> to homogeneize the values of all features we implement a MinMax scaler so that all the values are normalized in the (0,1) range. USers are free to change the scaler or to leave features at their original values if needed
 
 With the default values set, you have just to upload the file, set its name and run.
 
