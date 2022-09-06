@@ -42,7 +42,7 @@ Time,MOS,BW,RTT,JTR,BUF,SNR
 Each sub-dataset must be uploaded into our Python routine available at:  
 https://colab.research.google.com/drive/1xd9BxLasPSi1VaXLSPM7ew_8agM6rkap?usp=sharing
 
-After uploaded a sub-dataset (e.g. mob_g722.txt, meaning that the traffic is collected within the mobile scenario and the codec used is G.722), set the parameters in the first cell structure:  
+After uploaded a sub-dataset (e.g. mob_g722.txt, meaning that the traffic is collected within the mobile scenario and the codec used is G.722), set the parameters in the first "cell" of Python code:  
 
 - filename --> insert the name of the uploaded file (e.g. "mob_g722.txt")
 - train_size --> you can choose the training size (the test size is set accordingly) 
@@ -50,6 +50,9 @@ After uploaded a sub-dataset (e.g. mob_g722.txt, meaning that the traffic is col
 - epochs --> you can set the number of epochs  
 - models --> you can choose one of the implemented ML techniques for time series prediction: Long-Short Term Memory (code: 0), Convolutional Neural Networks (code: 1), Gated Recurrent Units (code: 2), Random Forest (code: 3), Multilayer Perceptron (code: 4), Gradient Boosting (code: 5) 
 - cols_to_predict --> you can choose one among the available features to predict (MOS, BW, RTT, JIT, DJB, SNR)
+
+Other parameters can be modified in the second "cell" Python code:
+- n_past --> is the number of past values used in the training set. Currently, we automate such a choice through the usage of the Akaike Information Criterion which selects the optimal value of n_past by minimizing the prediction error. In case users want to set manually such a number, it suffices to manually set the n_past variable (e.g., n_past=10).
 
 With the default values set, you have just to upload the file, set its name and run.
 
