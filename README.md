@@ -9,7 +9,7 @@ The equipment we used to build the real-world dataset includes:
 The area where we performed experiments is near Salerno city (Italy). The mobile operator is Vodafone. Currently the radio coverage is almost entirely in LTE-Advanced (also marketed as 4G+) as can be seen in the following picture.
 
 
-<img src="https://user-images.githubusercontent.com/16385982/189587559-d93204dd-02ac-44c0-9224-2c77752d4547.png" width="100" height="100">
+<img src="https://user-images.githubusercontent.com/16385982/189587559-d93204dd-02ac-44c0-9224-2c77752d4547.png" width="300" height="300">
 
 ## Dataset Construction
 
