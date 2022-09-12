@@ -6,7 +6,7 @@ The equipment we used to build the real-world dataset includes:
 - 1 mobile device equipped with Linphone (open-source softphone suppoorting RTCP-XR protocol) and a LTE-Advanced mobile SIM;
 - 1 standard PC equipped with: i) Linphone softphone, ii) Wireshark to capture the network traffic in .pcap format.
 
-The area where we performed experiments is near Salerno city (Italy). The mobile operator is Vodafone. Currently the radio coverage is almost entirely in LTE-Advanced (also marketed as 4G+) as can be seen in the following picture.
+The area where we performed experiments is near Salerno city (Italy). The mobile operator is Vodafone. Currently (Sept. 2022), the radio coverage is almost entirely in LTE-Advanced (also marketed as 4G+) as can be seen in the following picture.
 
 
 <img src="https://user-images.githubusercontent.com/16385982/189587559-d93204dd-02ac-44c0-9224-2c77752d4547.png" width="350" height="300">
