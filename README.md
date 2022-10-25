@@ -1,5 +1,9 @@
 ### Getting Started
 
+##Multivariate time series prediction of cellular traffic via Machine Learning
+
+We describe all the steps needed to build an original real-world dataset used to perform the so-called "Multivariate time series prediction" through Machine Learning techniques. The dataset contains several features of cellular traffic organized into time series. The goal is to exploit Machine Learning to predict the future behavior of a feature based on the past value of the feature itself and on the past values of other features.
+
 ## Cellular Traffic collection in a real environment
 
 The equipment we used to build the real-world dataset includes:
