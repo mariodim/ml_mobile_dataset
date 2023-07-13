@@ -65,7 +65,10 @@ With the default values set, you have just to upload the file, set its name and 
 ## Output
 
 Output files include:  
-	•	TXT files containing time series predictions per technique --> e.g. the output file mob_g722_cnn.txt is a 12-column file in this format: column #1 contains original values of MOS, column #2 contains predicted values of MOS, column 2 contains original values of BW, column #2 contains predicted values of BW, and so forth. Once exported, such files can be obviously used to reproduce the plots through different plot tools;
-	•	Information about RMSE, MAE, MAPE per each technique
-	•	Information about training time per each technique (directly shown in the output code).
+
+- TXT files containing time series predictions per technique --> e.g. the output file mob_g722_cnn.txt is a 12-column file in this format: column #1 contains original values of MOS, column #2 contains predicted values of MOS, column 2 contains original values of BW, column #2 contains predicted values of BW, and so forth. Once exported, such files can be obviously used to reproduce the plots through different plot tools;
+ 
+- Information about RMSE, MAE, MAPE per each technique
+
+- Information about training time per each technique (directly shown in the output code).
 
