@@ -1,8 +1,8 @@
 ### Getting Started
 
-## Multivariate time series prediction of cellular traffic via Machine Learning
+## Multivariate Time Series characterization and forecasting of VoIP traffic in real mobile networks
 
-We describe all the steps needed to build an original real-world dataset used to perform the so-called "Multivariate time series prediction" through Machine Learning techniques. The dataset contains several features of cellular traffic organized into time series. The goal is to exploit Machine Learning to predict the future behavior of a feature based on the past value of the feature itself and on the past values of other features.
+We release an original real-world dataset used to perform the so-called "Multivariate time series prediction" possible both via statistical techniques (e.g. VAR) and Machine/Deep Learning (ML/DL) techniques. The dataset contains several features of cellular traffic organized into time series. The goal is to exploit statistical and learning-based techniques to predict the future behavior of a given feature. The reference paper for this dataset is "Multivariate Time Series characterization and forecasting of VoIP traffic in real mobile networks", by M. Di Mauro et al., published on IEEE Transactions on Network and Service Management (available here:) and also available on ArXiv here: 
 
 ## Cellular Traffic collection in a real environment
 
@@ -10,12 +10,8 @@ The equipment we used to build the real-world dataset includes:
 - 1 mobile device equipped with Linphone (open-source softphone suppoorting RTCP-XR protocol) and a LTE-Advanced mobile SIM;
 - 1 standard PC equipped with: i) Linphone softphone, ii) Wireshark to capture the network traffic in .pcap format.
 
-The area where we performed experiments is near Salerno city (Italy). 
-The mobile operator is Vodafone. Currently (Sept. 2022), the radio coverage is almost entirely in LTE-Advanced (also marketed as 4G+) as can be seen in the following picture (Source: vodafone.it).
-
-
-<img src="https://user-images.githubusercontent.com/16385982/189589971-7aa0166e-3029-4294-b28a-8e9b8747a7e7.png" >
-
+The area where we performed experiments is near Salerno city (Italy), with a density of about 2000 people/sqKM.
+The mobile operator is Vodafone. Currently (Mar. 2023), the radio coverage is almost entirely in LTE-Advanced (also marketed as 4G+).
 
 ## Dataset Construction
 
@@ -25,6 +21,7 @@ The whole dataset includes 16 sub-datasets divided per codec and per network sce
 - 2 network scenarios:  
    **Mobile** (a cellular device communicates from a moving car at an average speed of 60 Km/H);  
    **Fixed** (a cellular device communicates being fixed in a place).
+Please note that all the experiments performed in the paper only refer to the Mobile scenario.
 
 Each sub-dataset is the result of a post-processing stage on the raw pcap files produced by Wireshark.  
 Each sub-dataset contains 6 temporal features:
@@ -35,7 +32,7 @@ Each sub-dataset contains 6 temporal features:
 - DJB (De-jittering Buffer) --> measures the buffer lenght used to reduce jitter (expressed in ms)
 - SNR (Signal-to-Noise ratio) --> measures the objective quality of the communication channel (expressed in dB)
 
-Fro the sake of simplicity, each sub-dataset is in .txt where values are separated by commas (see the following example): 
+Each processed sub-dataset is in .txt where values are separated by commas (see the following example): 
 
 Time,MOS,BW,RTT,JTR,BUF,SNR  
 1,4.5,83.888,0,60,67,27  
@@ -51,27 +48,23 @@ Time,MOS,BW,RTT,JTR,BUF,SNR
 ## Usage
 
 Each sub-dataset must be uploaded into our Python routine available at:  
-https://colab.research.google.com/drive/1xd9BxLasPSi1VaXLSPM7ew_8agM6rkap?usp=sharing
+https://colab.research.google.com/drive/1pe-p8yEP8QaVgWcOpVZ2ZwweJEqAjHhu?authuser=1#scrollTo=m7tbPrVrhyJB
 
 After uploaded a sub-dataset (e.g. mob_g722.txt, meaning that the traffic is collected within the mobile scenario and the codec used is G.722), set the parameters in the first "cell" of the Python code:  
 
-- filename --> insert the name of the uploaded file (e.g. "mob_g722.txt")
-- train_size --> you can choose the training size (the test size is set accordingly) 
-- param --> you can define the size of your ML network (number of dense neurons, number of LSTM units, etc.)  
-- epochs --> you can set the number of epochs  
-- models --> you can choose one of the implemented ML techniques for time series prediction: Long-Short Term Memory (code: 0), Convolutional Neural Networks (code: 1), Gated Recurrent Units (code: 2), Random Forest (code: 3), Multilayer Perceptron (code: 4), Gradient Boosting (code: 5) 
-- cols_to_predict --> you can choose one among the available features to predict (MOS, BW, RTT, JIT, DJB, SNR)
-
-Other parameters can be modified in the second "cell" of the Python code:
-- n_past --> is the number of past values used in the training set. Currently, we automate such a choice through the usage of the Akaike Information Criterion which selects the optimal value of n_past by minimizing the prediction error. In case users want to set manually such a number, it suffices to manually set the n_past variable (e.g., n_past=10)
-- scaler --> to homogeneize the values of all features we implement a MinMax scaler so that all the values are normalized in the (0,1) range. USers are free to change the scaler or to leave features at their original values if needed
+- filename --> insert the name of the uploaded file (e.g. "mob_g722.txt");
+- methods --> you can choose one of the implemented techniques for time series prediction by setting True or False;
+- param --> you can define the size of your ML network (number of dense neurons, number units, epochs, etc.);
+- perc_train --> you can choose the percentage of training size (the test size is set accordingly);
+- n_past --> is the number of past values used in the training set;
+- n_fut --> is the number of future samples to be predicted (default = 1)
 
 With the default values set, you have just to upload the file, set its name and run.
 
 ## Output
 
 Output files include:  
-- TXT files containing time series predictions per technique --> e.g. the output file mob_g722_cnn.txt is a 6-column file containing prediction per each feature obtained by applying the CNN technique. Such files have been used to produce the prediction plots embedded in the output. Once exported, such files can be obviously used to reproduce the plots eventually through different plot tools.  
-- TXT files containing performance indicators per technique --> e.g. the output file mae_cnn.txt contains the Mean Absolute Error obtained after applying CNN technique per feature; similarly, the output file mse_cnn.txt contains the Mean Squared Error obtained after applying CNN technique per feature. Please note that such performance are also displayed directly in the output code.  
-- Information about training time per each technique (directly shown into the output code). 
+	•	TXT files containing time series predictions per technique --> e.g. the output file mob_g722_cnn.txt is a 12-column file in this format: column #1 contains original values of MOS, column #2 contains predicted values of MOS, column 2 contains original values of BW, column #2 contains predicted values of BW, and so forth. Once exported, such files can be obviously used to reproduce the plots through different plot tools;
+	•	Information about RMSE, MAE, MAPE per each technique
+	•	Information about training time per each technique (directly shown in the output code).
 
