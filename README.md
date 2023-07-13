@@ -23,8 +23,8 @@ The whole dataset includes 16 sub-datasets divided per codec and per network sce
    **Fixed** (a cellular device communicates being fixed in a place).
 
 You download both:
-- raw files (.pcap) available at:
-- processed files (.txt) available at: 
+- raw files (.pcap) available at: https://drive.google.com/file/d/1-r2Xd1VK6r7O_1KaXVYPus1Rcj6TF9DF/view?usp=sharing
+- processed files (.txt) available at: https://github.com/mariodim/ml_mobile_dataset/blob/main/ML_TimeSeries_DATASETS.zip
 
 Please note that all the experiments performed in the paper only refer to the Mobile scenario.
 
