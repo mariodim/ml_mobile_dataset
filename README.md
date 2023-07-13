@@ -21,6 +21,7 @@ The whole dataset includes 16 sub-datasets divided per codec and per network sce
 - 2 network scenarios:  
    **Mobile** (a cellular device communicates from a moving car at an average speed of 60 Km/H);  
    **Fixed** (a cellular device communicates being fixed in a place).
+
 Please note that all the experiments performed in the paper only refer to the Mobile scenario.
 
 Each sub-dataset is the result of a post-processing stage on the raw pcap files produced by Wireshark.  
